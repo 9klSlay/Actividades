@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ejemplo If y Else If</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            background: #100b18;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .contenedor {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #c77dff;
+        }
+
+        .codigo {
+            background: #0a0710;
+            border: 1px solid #6a0dad;
+            border-radius: 12px;
+            padding: 20px;
+            overflow-x: auto;
+            white-space: pre;
+            color: #ddd;
+            font-family: Consolas, monospace;
+            box-shadow: 0 0 20px #6a0dad55;
+        }
+
+        button {
+            display: block;
+            margin: 25px auto;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 10px;
+            background: #8a2be2;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #a855f7;
+            transform: scale(1.05);
+        }
+
+        .consola {
+            background: #050505;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 20px;
+            min-height: 180px;
+            color: #00ff88;
+            font-family: Consolas, monospace;
+            box-shadow: 0 0 20px #000;
+        }
+
+        .consola::before {
+            content: "●  ●  ●";
+            display: block;
+            color: #666;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <h1>Ejemplo de If, Else If y Else</h1>
+
+        <!-- Cuadro donde se muestra el código -->
+        <div class="codigo">
+// ====================
+//     Caso 1: Todas son falsas
+// ====================
+
+if (5 > 10) {
+    console.log("Primera condición verdadera");
+} else if (2 > 8) {
+    console.log("Segunda condición verdadera");
+} else {
+    console.log("Todas las expresiones son falsas");
+}
+
+
+// ====================
+//     Caso 2: Todas son verdaderas
+// ====================
+
+if (10 > 5) {
+    console.log("Primera condición verdadera");
+} else if (8 > 3) {
+    console.log("Segunda condición verdadera");
+} else {
+    console.log("Todas las expresiones son falsas");
+}
+
+
+// ====================
+//     Caso 3: Múltiples expresiones verdaderas
+// ====================
+
+if (9154 > 65) {
+    console.log("Primera condición verdadera");
+} else if (9251 > 2561) {
+    console.log("Segunda condición verdadera");
+} else {
+    console.log("Todas las expresiones son falsas");
+}
+        </div>
+
+        <!-- Botón -->
+        <button onclick="ejecutarCodigo()">
+            ▶ Ejecutar código
+        </button>
+
+        <!-- Mini consola -->
+        <div class="consola" id="consola">
+            Presiona el botón para ejecutar el código...
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function ejecutarCodigo() {
+
+            let consola = document.getElementById("consola");
+
+            // Limpiamos la consola
+            consola.innerHTML = "";
+
+            // ====================
+            //     Caso 1
+            // ====================
+
+            if (5 > 10) {
+                consola.innerHTML += "Primera condición verdadera<br>";
+            } else if (2 > 8) {
+                consola.innerHTML += "Segunda condición verdadera<br>";
+            } else {
+                consola.innerHTML += "Todas las expresiones son falsas<br>";
+            }
+
+
+            // ====================
+            //     Caso 2
+            // ====================
+
+            if (10 > 5) {
+                consola.innerHTML += "Primera condición verdadera<br>";
+            } else if (8 > 3) {
+                consola.innerHTML += "Segunda condición verdadera<br>";
+            } else {
+                consola.innerHTML += "Todas las expresiones son falsas<br>";
+            }
+
+
+            // ====================
+            //     Caso 3
+            // ====================
+
+            if (9154 > 65) {
+                consola.innerHTML += "Primera condición verdadera<br>";
+            } else if (9251 > 2561) {
+                consola.innerHTML += "Segunda condición verdadera<br>";
+            } else {
+                consola.innerHTML += "Todas las expresiones son falsas<br>";
+            }
+        }
+
+    </script>
+    <footer>
+            <p>Hecho con mucho amor - <a href="https://9klslay.github.io" target="_blank">9k lSlay</a></p>
+        </footer>
+</body>
+</html>

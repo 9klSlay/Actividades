@@ -1,0 +1,287 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(157, 45, 255, 0.25), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(104, 0, 255, 0.25), transparent 30%),
+        linear-gradient(135deg, #08000d, #160021, #08000d);
+    overflow: hidden;
+}
+
+/* Luces de fondo */
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.35;
+    z-index: -1;
+}
+
+body::before {
+    background: #9d24ff;
+    top: -150px;
+    left: -100px;
+}
+
+body::after {
+    background: #5e00ff;
+    bottom: -150px;
+    right: -100px;
+}
+
+/* Contenedor principal */
+
+body {
+    flex-direction: column;
+}
+
+/* Título */
+
+h1 {
+    position: relative;
+    margin-bottom: 10px;
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    text-align: center;
+    color: #ffffff;
+    text-shadow:
+        0 0 10px rgba(185, 83, 255, 0.8),
+        0 0 30px rgba(130, 0, 255, 0.5);
+}
+
+h1::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 4px;
+    margin: 12px auto 0;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #8b2cff, #d86cff);
+    box-shadow: 0 0 15px #9c35ff;
+}
+
+/* Descripción */
+
+p:first-of-type {
+    margin-bottom: 25px;
+    color: #b9a9c5;
+    font-size: 15px;
+    text-align: center;
+    letter-spacing: 0.3px;
+}
+
+/* Tarjeta creada visualmente alrededor de los elementos */
+
+input,
+button,
+#mensaje {
+    position: relative;
+}
+
+/* Inputs */
+
+input {
+    width: 300px;
+    height: 55px;
+    display: block;
+    margin: 12px auto;
+    padding: 0 18px;
+
+    border: 1px solid rgba(190, 102, 255, 0.25);
+    border-radius: 14px;
+
+    outline: none;
+
+    background: rgba(24, 8, 35, 0.75);
+    backdrop-filter: blur(15px);
+
+    color: white;
+    font-size: 15px;
+
+    box-shadow:
+        inset 0 0 15px rgba(0, 0, 0, 0.25),
+        0 5px 20px rgba(0, 0, 0, 0.25);
+
+    transition: all 0.3s ease;
+}
+
+input::placeholder {
+    color: #8f7c99;
+}
+
+input:hover {
+    border-color: rgba(185, 75, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+input:focus {
+    border-color: #b957ff;
+
+    background: rgba(35, 10, 50, 0.9);
+
+    box-shadow:
+        0 0 0 3px rgba(169, 55, 255, 0.12),
+        0 0 25px rgba(161, 48, 255, 0.35);
+
+    transform: translateY(-2px);
+}
+
+/* Botón */
+
+button {
+    width: 300px;
+    height: 55px;
+
+    margin: 22px auto;
+
+    display: block;
+
+    border: none;
+    border-radius: 14px;
+
+    background: linear-gradient(
+        135deg,
+        #7624e8,
+        #a52cff,
+        #c34dff
+    );
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    letter-spacing: 0.4px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px rgba(130, 32, 255, 0.35),
+        inset 0 1px rgba(255, 255, 255, 0.2);
+
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-4px) scale(1.02);
+
+    box-shadow:
+        0 12px 35px rgba(157, 43, 255, 0.55),
+        0 0 25px rgba(177, 61, 255, 0.3);
+}
+
+button:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+/* Resultado */
+
+#mensaje {
+    width: 300px;
+    min-height: 55px;
+
+    margin: 15px auto 0;
+    padding: 16px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 14px;
+
+    border: 1px solid rgba(190, 100, 255, 0.2);
+
+    background: rgba(24, 7, 35, 0.65);
+    backdrop-filter: blur(12px);
+
+    color: #dfb6ff;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    text-align: center;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.25),
+        inset 0 0 20px rgba(153, 45, 255, 0.04);
+
+    transition: all 0.3s ease;
+}
+
+/* Animación de entrada */
+
+h1,
+p:first-of-type,
+input,
+button,
+#mensaje {
+    animation: aparecer 0.7s ease both;
+}
+
+p:first-of-type {
+    animation-delay: 0.1s;
+}
+
+input:nth-of-type(1) {
+    animation-delay: 0.2s;
+}
+
+input:nth-of-type(2) {
+    animation-delay: 0.3s;
+}
+
+button {
+    animation-delay: 0.4s;
+}
+
+#mensaje {
+    animation-delay: 0.5s;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+
+@media (max-width: 500px) {
+
+    h1 {
+        font-size: 32px;
+    }
+
+    input,
+    button,
+    #mensaje {
+        width: 85%;
+    }
+
+    p:first-of-type {
+        width: 85%;
+        line-height: 1.5;
+    }
+}

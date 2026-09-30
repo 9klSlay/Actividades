@@ -1,0 +1,531 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ==========================================
+   FONDO
+   ========================================== */
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            #35145c 0%,
+            #160b25 35%,
+            #08050d 75%
+        );
+
+    color: white;
+
+    overflow: hidden;
+}
+
+
+/* ==========================================
+   TARJETA
+   ========================================== */
+
+.tarjeta {
+    position: relative;
+
+    width: 420px;
+
+    padding: 35px;
+
+    background: rgba(13, 8, 21, 0.96);
+
+    border: 1px solid rgba(168, 85, 247, 0.7);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 0 20px rgba(123, 44, 255, 0.35),
+        0 0 50px rgba(123, 44, 255, 0.15);
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+
+/* ==========================================
+   BRILLO INTERIOR
+   ========================================== */
+
+.tarjeta::before {
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    top: -150px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: #7c3aed;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    opacity: 0.15;
+
+    pointer-events: none;
+}
+
+
+/* ==========================================
+   TITULO
+   ========================================== */
+
+h1 {
+    position: relative;
+
+    font-size: 32px;
+
+    margin-bottom: 8px;
+
+    color: white;
+
+    text-shadow:
+        0 0 8px #a855f7,
+        0 0 20px #7c3aed,
+        0 0 35px rgba(124, 58, 237, 0.5);
+}
+
+
+.subtitulo {
+    position: relative;
+
+    margin-bottom: 25px;
+
+    color: #a889c9;
+
+    font-size: 14px;
+
+    letter-spacing: 1px;
+}
+
+
+/* ==========================================
+   LISTA
+   ========================================== */
+
+nav {
+    position: relative;
+    z-index: 2;
+}
+
+ul {
+    list-style: none;
+}
+
+
+/* ==========================================
+   BOTONES
+   ========================================== */
+
+li {
+    margin: 10px 0;
+}
+
+
+li a {
+    display: block;
+
+    padding: 11px;
+
+    color: #eee;
+
+    text-decoration: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(101, 35, 160, 0.18),
+            rgba(168, 85, 247, 0.08)
+        );
+
+    border: 1px solid rgba(168, 85, 247, 0.25);
+
+    border-radius: 9px;
+
+    transition:
+        transform 0.25s,
+        background 0.25s,
+        border 0.25s,
+        box-shadow 0.25s;
+}
+
+
+li a:hover {
+    transform: translateX(6px);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(123, 44, 255, 0.45),
+            rgba(168, 85, 247, 0.18)
+        );
+
+    border-color: rgba(192, 132, 252, 0.8);
+
+    box-shadow:
+        0 0 12px rgba(168, 85, 247, 0.35),
+        inset 0 0 10px rgba(168, 85, 247, 0.08);
+
+    color: white;
+}
+
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+
+footer {
+    position: relative;
+    z-index: 2;
+
+    margin-top: 25px;
+
+    font-size: 12px;
+
+    color: #766184;
+}
+
+
+footer a {
+    color: #a855f7;
+
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+
+footer a:hover {
+    color: #d8b4fe;
+
+    text-shadow:
+        0 0 8px #a855f7;
+}
+
+
+/* ==========================================
+   ESTRELLA FUGAZ
+   ========================================== */
+
+.estrella {
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    box-shadow:
+        0 0 5px white,
+        0 0 10px #e9d5ff,
+        0 0 18px #c084fc,
+        0 0 30px #8b5cf6;
+
+    z-index: 20;
+
+    pointer-events: none;
+
+    animation:
+        moverEstrella 8s linear infinite;
+}
+
+
+/* ==========================================
+   ESTELA DE LA ESTRELLA
+   ========================================== */
+
+.estrella::after {
+    content: "";
+
+    position: absolute;
+
+    width: 65px;
+    height: 2px;
+
+    top: 50%;
+    right: 3px;
+
+    transform-origin: right center;
+
+    transform: translateY(-50%);
+
+    border-radius: 100%;
+
+    background:
+        linear-gradient(
+            to left,
+            rgba(168, 85, 247, 0),
+            rgba(168, 85, 247, 0.5),
+            white
+        );
+
+    box-shadow:
+        0 0 5px #a855f7;
+
+    animation:
+        moverEstela 8s linear infinite;
+}
+
+
+/* ==========================================
+   MOVIMIENTO DE LA ESTRELLA
+   ========================================== */
+
+@keyframes moverEstrella {
+
+    /* ARRIBA - aparece */
+    0% {
+        left: 8px;
+        top: 8px;
+        opacity: 0;
+    }
+
+    3% {
+        opacity: 1;
+    }
+
+
+    /* ARRIBA → DERECHA */
+    22% {
+        left: calc(100% - 15px);
+        top: 8px;
+        opacity: 1;
+    }
+
+
+    /* Esquina */
+    25% {
+        left: calc(100% - 15px);
+        top: 8px;
+        opacity: 0;
+    }
+
+
+    /* DERECHA → ABAJO */
+    27% {
+        left: calc(100% - 15px);
+        top: 8px;
+        opacity: 1;
+    }
+
+    47% {
+        left: calc(100% - 15px);
+        top: calc(100% - 15px);
+        opacity: 1;
+    }
+
+
+    /* Esquina */
+    50% {
+        left: calc(100% - 15px);
+        top: calc(100% - 15px);
+        opacity: 0;
+    }
+
+
+    /* ABAJO → IZQUIERDA */
+    52% {
+        left: calc(100% - 15px);
+        top: calc(100% - 15px);
+        opacity: 1;
+    }
+
+    72% {
+        left: 8px;
+        top: calc(100% - 15px);
+        opacity: 1;
+    }
+
+
+    /* Esquina */
+    75% {
+        left: 8px;
+        top: calc(100% - 15px);
+        opacity: 0;
+    }
+
+
+    /* IZQUIERDA → ARRIBA */
+    77% {
+        left: 8px;
+        top: calc(100% - 15px);
+        opacity: 1;
+    }
+
+    97% {
+        left: 8px;
+        top: 8px;
+        opacity: 1;
+    }
+
+
+    /* Desaparece */
+    100% {
+        left: 8px;
+        top: 8px;
+        opacity: 0;
+    }
+}
+
+
+/* ==========================================
+   MOVIMIENTO DE LA ESTELA
+   ========================================== */
+
+@keyframes moverEstela {
+
+    /*
+       ARRIBA
+       La estrella va →
+       La estela queda ←
+    */
+
+    0% {
+        transform:
+            translateY(-50%)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    3% {
+        transform:
+            translateY(-50%)
+            rotate(0deg);
+
+        opacity: 1;
+    }
+
+    22% {
+        transform:
+            translateY(-50%)
+            rotate(0deg);
+
+        opacity: 1;
+    }
+
+
+    /* Esquina */
+
+    25% {
+        opacity: 0;
+    }
+
+
+    /*
+       DERECHA
+       La estrella va ↓
+       La estela queda ↑
+    */
+
+    27% {
+        transform:
+            translateY(-50%)
+            rotate(90deg);
+
+        opacity: 1;
+    }
+
+    47% {
+        transform:
+            translateY(-50%)
+            rotate(90deg);
+
+        opacity: 1;
+    }
+
+
+    /* Esquina */
+
+    50% {
+        opacity: 0;
+    }
+
+
+    /*
+       ABAJO
+       La estrella va ←
+       La estela queda →
+    */
+
+    52% {
+        transform:
+            translateY(-50%)
+            rotate(180deg);
+
+        opacity: 1;
+    }
+
+    72% {
+        transform:
+            translateY(-50%)
+            rotate(180deg);
+
+        opacity: 1;
+    }
+
+
+    /* Esquina */
+
+    75% {
+        opacity: 0;
+    }
+
+
+    /*
+       IZQUIERDA
+       La estrella va ↑
+       La estela queda ↓
+    */
+
+    77% {
+        transform:
+            translateY(-50%)
+            rotate(270deg);
+
+        opacity: 1;
+    }
+
+    97% {
+        transform:
+            translateY(-50%)
+            rotate(270deg);
+
+        opacity: 1;
+    }
+
+
+    /* Reinicio */
+
+    100% {
+        transform:
+            translateY(-50%)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}

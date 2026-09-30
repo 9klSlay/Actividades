@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú de Actividades</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="tarjeta">
+
+        <h1>Mis Actividades</h1>
+        <p class="subtitulo">HTML & JavaScript</p>
+
+        <nav>
+            <ul>
+                <li><a href="Actividad1/index.html" target="_blank">Actividad 1</a></li>
+                <li><a href="Actividad2/index.html" target="_blank">Actividad 2</a></li>
+                <li><a href="Actividad3/index.html" target="_blank">Actividad 3</a></li>
+                <li><a href="Actividad4/index.html" target="_blank">Actividad 4</a></li>
+                <li><a href="Actividad5/index.html" target="_blank">Actividad 5</a></li>
+                <li><a href="Actividad6/index.html" target="_blank">Actividad 6</a></li>
+                <li><a href="Actividad7/index.html" target="_blank">Actividad 7</a></li>
+                <li><a href="Actividad8/index.html" target="_blank">Actividad 8</a></li>
+                <li><a href="Actividad9/index.html" target="_blank">Actividad 9</a></li>
+            </ul>
+        </nav>
+
+        <footer>
+            <p>Hecho con mucho amor - <a href="https://9klslay.github.io" target="_blank">9k lSlay</a></p>
+        </footer>
+
+        <div class="estrella"></div>
+
+    </div>
+
+    <script>
+        const enlaces = document.querySelectorAll("nav a");
+
+        enlaces.forEach(function(enlace) {
+            enlace.addEventListener("click", function() {
+                const sonido = new Audio("callate.mp3");
+                sonido.play();
+            });
+        });
+    </script>
+
+</body>
+</html>

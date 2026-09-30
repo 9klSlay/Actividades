@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Comparación de If y Else If</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px;
+            background: #100b18;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .contenedor {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #c77dff;
+            margin-bottom: 10px;
+        }
+
+        .descripcion {
+            text-align: center;
+            color: #bbb;
+            margin-bottom: 35px;
+        }
+
+        .comparacion {
+            display: flex;
+            gap: 25px;
+            align-items: stretch;
+        }
+
+        .tarjeta {
+            flex: 1;
+            background: #181020;
+            border: 1px solid #6a0dad;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 0 20px #6a0dad44;
+        }
+
+        .tarjeta h2 {
+            color: #c77dff;
+            margin-top: 0;
+        }
+
+        .diferencia {
+            background: #0d0912;
+            border-left: 4px solid #a855f7;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            color: #ddd;
+            line-height: 1.5;
+        }
+
+        .codigo {
+            background: #050505;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 18px;
+            overflow-x: auto;
+            white-space: pre;
+            color: #ddd;
+            font-family: Consolas, monospace;
+            line-height: 1.5;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto 0;
+            padding: 11px 25px;
+            border: none;
+            border-radius: 9px;
+            background: #8a2be2;
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #a855f7;
+            transform: scale(1.05);
+        }
+
+        .consola {
+            margin-top: 15px;
+            min-height: 100px;
+            padding: 15px;
+            background: #020202;
+            border: 1px solid #333;
+            border-radius: 10px;
+            color: #00ff88;
+            font-family: Consolas, monospace;
+        }
+
+        .consola::before {
+            content: "●  ●  ●";
+            display: block;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .explicacion {
+            margin-top: 35px;
+            background: #181020;
+            border: 1px solid #6a0dad;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 0 20px #6a0dad44;
+        }
+
+        .explicacion h2 {
+            color: #c77dff;
+            margin-top: 0;
+        }
+
+        .explicacion p {
+            color: #ddd;
+            line-height: 1.6;
+        }
+
+        .resaltado {
+            color: #c77dff;
+            font-weight: bold;
+        }
+
+        @media (max-width: 800px) {
+            .comparacion {
+                flex-direction: column;
+            }
+
+            body {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <h1>Comparación de If y Else If</h1>
+
+        <p class="descripcion">
+            Comparación entre dos formas de evaluar la variable <b>a = 950</b>
+        </p>
+
+
+        <div class="comparacion">
+
+            <!-- ========================= -->
+            <!--        SCRIPT 1            -->
+            <!-- ========================= -->
+
+            <div class="tarjeta">
+
+                <h2>Script 1</h2>
+
+                <div class="diferencia">
+                    <b>Diferencia:</b><br>
+                    Utiliza varios <span class="resaltado">if</span>
+                    independientes. Cada condición se evalúa por separado.
+                </div>
+
+                <div class="codigo">
+a = 950
+
+if (a < 576) {
+    console.log("xs")
+}
+
+if (a < 768) {
+    console.log("sm")
+}
+
+if (a < 962) {
+    console.log("md")
+}
+
+else {
+    console.log("xl")
+}
+                </div>
+
+                <button onclick="ejecutarScript1()">
+                    ▶ Ejecutar Script 1
+                </button>
+
+                <div class="consola" id="consola1">
+                    Presiona el botón...
+                </div>
+
+            </div>
+
+
+            <!-- ========================= -->
+            <!--        SCRIPT 2            -->
+            <!-- ========================= -->
+
+            <div class="tarjeta">
+
+                <h2>Script 2</h2>
+
+                <div class="diferencia">
+                    <b>Diferencia:</b><br>
+                    Utiliza <span class="resaltado">if / else if / else</span>.
+                    Cuando encuentra una condición verdadera, las siguientes
+                    ya no se ejecutan.
+                </div>
+
+                <div class="codigo">
+a = 950
+
+if (a < 576) {
+    console.log("xs")
+}
+
+else if (a < 768) {
+    console.log("sm")
+}
+
+else if (a < 962) {
+    console.log("md")
+}
+
+else {
+    console.log("xl")
+}
+                </div>
+
+                <button onclick="ejecutarScript2()">
+                    ▶ Ejecutar Script 2
+                </button>
+
+                <div class="consola" id="consola2">
+                    Presiona el botón...
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!--       EXPLICACIÓN          -->
+        <!-- ========================= -->
+
+        <div class="explicacion">
+
+            <h2>¿Qué los diferencia?</h2>
+
+            <p>
+                En el <span class="resaltado">Script 1</span>, los
+                <b>if son independientes</b>. Por eso, si varias condiciones
+                son verdaderas, se pueden ejecutar varias al mismo tiempo.
+            </p>
+
+            <p>
+                En el <span class="resaltado">Script 2</span>, las condiciones
+                forman una sola cadena de <b>if / else if / else</b>.
+                Solamente se ejecuta la primera condición que sea verdadera.
+            </p>
+
+            <p>
+                Como <b>a = 950</b>, en el Script 2 se cumple
+                <b>a &lt; 962</b>, por lo que muestra:
+                <span class="resaltado">md</span>.
+            </p>
+
+        </div>
+
+    </div>
+    <footer>
+            <p>Hecho con mucho amor - <a href="https://9klslay.github.io" target="_blank">9k lSlay</a></p>
+        </footer>
+
+
+    <script>
+
+        // =========================
+        //       SCRIPT 1
+        // =========================
+
+        function ejecutarScript1() {
+
+            let consola = document.getElementById("consola1");
+
+            consola.innerHTML = "";
+
+            let a = 950;
+
+            if (a < 576) {
+                consola.innerHTML += "xs<br>";
+            }
+
+            if (a < 768) {
+                consola.innerHTML += "sm<br>";
+            }
+
+            if (a < 962) {
+                consola.innerHTML += "md<br>";
+            }
+
+            else {
+                consola.innerHTML += "xl<br>";
+            }
+        }
+
+
+        // =========================
+        //       SCRIPT 2
+        // =========================
+
+        function ejecutarScript2() {
+
+            let consola = document.getElementById("consola2");
+
+            consola.innerHTML = "";
+
+            let a = 950;
+
+            if (a < 576) {
+                consola.innerHTML += "xs<br>";
+            }
+
+            else if (a < 768) {
+                consola.innerHTML += "sm<br>";
+            }
+
+            else if (a < 962) {
+                consola.innerHTML += "md<br>";
+            }
+
+            else {
+                consola.innerHTML += "xl<br>";
+            }
+        }
+
+    </script>
+
+</body>
+</html>
