@@ -6,17 +6,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
 <title>Herbi 🌡️</title>
 
 <link rel="stylesheet" href="tarea1.css">
-```
 
 </head>
 
 <body>
 
-```
 <main class="contenedor">
 
     <div class="tarjeta">
@@ -26,14 +23,34 @@
         <h1>Herbi Temperature</h1>
 
         <p>
-            Descubre qué tan kaliente o elao está Herbi.
+            Escribe la temperatura de Herbi
+            para descubrir cómo está.
         </p>
 
-        <div class="separador"></div>
+        <div class="entrada">
 
-        <div class="info">
-            <span>🌡️</span>
-            <span>Ingresa la temperatura cuando aparezca el mensaje.</span>
+            <label for="temperatura">
+                Temperatura
+            </label>
+
+            <input
+                type="number"
+                id="temperatura"
+                placeholder="Ej: 25"
+            >
+
+            <button id="boton">
+                Comprobar temperatura
+            </button>
+
+        </div>
+
+        <div class="resultado">
+
+            <p id="mensaje">
+                Aquí aparecerá el estado de Herbi 🌡️
+            </p>
+
         </div>
 
         <div class="decoracion">
@@ -56,7 +73,6 @@
 </footer>
 
 <script src="script.js"></script>
-```
 
 </body>
 
